@@ -3,7 +3,7 @@ My Simple Cookie
 
 Simple cookie handling module<br>
 
-**Setting a cookie:
+##Setting a cookie:
 ```javascript
 var cookies = require('my-simple-cookie');
 
@@ -14,7 +14,7 @@ Will create a new cookie named newCookie with the value newCookie with 1 day exp
 cookie value can also be objects, array, boolean or any other type.
 
 
-**Updating a cookie:
+##Updating a cookie:
 ```javascript
 cookies.set('newCookie', 'cookieValue', { expires: 60*60*24, path: '/' } );
 
@@ -23,21 +23,20 @@ cookies.set('newCookie', 'cookieValue', { expires: 60*60*24, path: '/' } );
 cookies.update('newCookie', 'cookieValue', { expires: 60*60*24, path: '/' } );
 ```
 
-**Retrieving a cookie:
+##Retrieving a cookie:
 ```javascript
 cookies.get('newCookie' );
 ```
 Will return the value of "newCookie" <br>
 
-**Removing a cookie
+##Removing a cookie
 ```javascript
 cookies.remove('newCookie' );
 ```
 Will delete the cookie "newCookie" <br>
 
 
-**Options:
-
+##Options:
 expires : Number of second till cookie expires in seconds {default to : 30days - 60*60*24*30 }.<br>
 path : (String) Path of the cookie {default to : / }.<br>
  
