@@ -1,49 +1,43 @@
-myCookie
-========
+My Simple Cookie
+================
 
-Simple jquery plugin to handle js cookies in a very simple way.<br>
+Simple cookie handling module<br>
 
-Although you are able to use objects as cookie value with the plugin keep in mind the 4k limit per domain(which is about 1000-4000 characters) exceeding this will cause problems.<br>
-
-<strong>Setting a cookie: </strong>
+**Setting a cookie:
 ```javascript
-myCookie( {cName : "newCookie", cVal : "newCookie"} );
+var cookies = require('my-simple-cookie');
+
+cookies.set('newCookie', 'cookieValue', { expires: 60*60*24, path: '/' } );
+
 ```
-Will create a new cookie named newCookie with the value newCookie<br><br>
+Will create a new cookie named newCookie with the value newCookie with 1 day expiration and / as path<br><br>
+cookie value can also be objects, array, boolean or any other type.
 
 
-<strong>Setting a cookie with expiration (in seconds): </strong>
+**Updating a cookie:
 ```javascript
-myCookie({
-  cName : "newCookie",
-  cVal : "newCookie",
-  exp : 300
-});
-```
-Will create a new cookie named newCookie with the value newCookie and will expire in 300 seconds<br><br>
+cookies.set('newCookie', 'cookieValue', { expires: 60*60*24, path: '/' } );
 
-<strong>Retrieving a Cookie: </strong>
+// Or
+
+cookies.update('newCookie', 'cookieValue', { expires: 60*60*24, path: '/' } );
+```
+
+**Retrieving a cookie:
 ```javascript
-myCookie({cName: "newCookie"});
+cookies.get('newCookie' );
 ```
-Will return the value "newCookie" in our case <br>
+Will return the value of "newCookie" <br>
 
-<strong>Deleting a Cookie: </strong>
+**Removing a cookie
 ```javascript
-myCookie({cName: "newCookie", del:true});
-
-// Or:
-
-myCookie({cName: "newCookie", exp:0});
+cookies.remove('newCookie' );
 ```
-Both cases will delete the cookie "newCookie" <br>
+Will delete the cookie "newCookie" <br>
 
 
-<strong>myCookie object accept the following properties</strong> :<br>
-cName : (String) Cookie name, if "=" was used in the name it will be removed {default to : no default }.<br>
-cVal : (String|Object|Array) Cookie value can be anything. However mind cookie size limitation {default to : no default }.<br>
-exp : (Int) Number of second till cookie expires in seconds {default to : 30days - 60*60*24*30 }.<br>
-del : (Boolean) Setting to true will delete existing cookie {default to : false }.<br>
+**Options:
+expires : Number of second till cookie expires in seconds {default to : 30days - 60*60*24*30 }.<br>
 path : (String) Path of the cookie {default to : / }.<br>
  
 
