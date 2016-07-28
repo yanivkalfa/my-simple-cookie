@@ -1,5 +1,5 @@
-export default function() {
-  let cookiesLimit, cookiesSize, defaults;
+module.exports =  function() {
+  var cookiesLimit, cookiesSize, defaults;
   cookiesLimit = 20;
   cookiesSize = 1024;
   defaults = {
@@ -26,7 +26,7 @@ export default function() {
   }
 
   function parseCookies(){
-    let cookiesRow, cookies;
+    var cookiesRow, cookies;
     cookiesRow = document.cookie.split(';') || [];
     cookies = {__cookiesCount: 0 };
     cookiesRow.forEach(function(cookie){
@@ -39,13 +39,13 @@ export default function() {
   }
 
   function getCookie(name) {
-    let cookies = parseCookies();
+    var cookies = parseCookies();
     return cookies[name] || cookies
   }
 
   function updateCookie(name, value, opts){
     if ( !name || !value ) throw new Error('Cookie name or value is missing');
-    let d, expires, path, cookies, tempValue;
+    var d, expires, path, cookies, tempValue;
     tempValue = prepareToSet(value);
     cookies = parseCookies();
     if ( cookies.__cookiesCount >= cookiesLimit ) console.warn('You have: ' + cookies.__cookiesCount + ' Certain browsers support up to: ' + cookiesLimit);
