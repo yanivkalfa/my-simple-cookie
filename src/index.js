@@ -1,7 +1,8 @@
-module.exports =  function() {
-  var cookiesLimit = 20;
-  var cookiesSize = 1024;
-  var defaults = {
+export default function() {
+  let cookiesLimit, cookiesSize, defaults;
+  cookiesLimit = 20;
+  cookiesSize = 1024;
+  defaults = {
     expires :  60*60*24/* 30 days*/,
     path : '/'
   };
@@ -25,7 +26,7 @@ module.exports =  function() {
   }
 
   function parseCookies(){
-    var cookiesRow, cookies, count;
+    let cookiesRow, cookies;
     cookiesRow = document.cookie.split(';') || [];
     cookies = {__cookiesCount: 0 };
     cookiesRow.forEach(function(cookie){
@@ -38,13 +39,13 @@ module.exports =  function() {
   }
 
   function getCookie(name) {
-    var cookies = parseCookies();
+    let cookies = parseCookies();
     return cookies[name] || cookies
   }
 
   function updateCookie(name, value, opts){
     if ( !name || !value ) throw new Error('Cookie name or value is missing');
-    var d, expires, path, cookies, tempValue;
+    let d, expires, path, cookies, tempValue;
     tempValue = prepareToSet(value);
     cookies = parseCookies();
     if ( cookies.__cookiesCount >= cookiesLimit ) console.warn('You have: ' + cookies.__cookiesCount + ' Certain browsers support up to: ' + cookiesLimit);
