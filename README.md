@@ -37,6 +37,7 @@ Will delete the cookie "newCookie" <br>
 
 
 **Options:
+
 expires : Number of second till cookie expires in seconds {default to : 30days - 60*60*24*30 }.<br>
 path : (String) Path of the cookie {default to : / }.<br>
  
