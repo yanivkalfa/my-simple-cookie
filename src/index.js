@@ -1,4 +1,4 @@
-module.exports =  function() {
+module.exports = function () {
   var cookiesLimit, cookiesSize, defaults;
   cookiesLimit = 20;
   cookiesSize = 1024;
