@@ -1,0 +1,19 @@
+{
+  "name": "my-simple-cookie",
+  "version": "1.0.0",
+  "description": "Simple cookie implementation",
+  "main": "./lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yanivkalfa/my-simple-cookie.git"
+  },
+  "keywords": [
+    "simple",
+    "cookie"
+  ],
+  "author": "Yaniv Kalfa <netameta1@yahoo.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yanivkalfa/my-simple-cookie/issues"
+  }
+}
