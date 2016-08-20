@@ -6,7 +6,6 @@ Simple cookie handling module<br>
 ##Setting a cookie:
 ```javascript
 var cookies = require('my-simple-cookie');
-
 cookies.set('newCookie', 'cookieValue', { expires: 60*60*24, path: '/' } );
 
 ```
