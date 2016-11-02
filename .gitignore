@@ -1,6 +1,2 @@
 node_modules
 .idea
-/lib
-npm-debug.log
-.DS_Store
-coverage
