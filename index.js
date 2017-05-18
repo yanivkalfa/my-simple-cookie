@@ -1,3 +1,7 @@
+/**
+ * version: v1.3.8
+ */
+
 var cookiesLimit, cookiesSize, defaults;
 cookiesLimit = 20;
 cookiesSize = 1024;
