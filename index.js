@@ -86,12 +86,11 @@ function updateCookie(name, value, opts){
   document.cookie = buildCookie(content, expires, path, domain, httponly, secure);
 }
 
-function removeCookie(name, opts) {
+function removeCookie(name) {
   if ( !name ) {
     throw new Error('Cookie name is missing');
   }
-  opts = opts || {};
-  updateCookie(name, true, Object.assign({}, opts, { expires: 0 }) )
+  updateCookie(name, true, { expires: 0 });
 }
 
 module.exports = {
@@ -100,3 +99,4 @@ module.exports = {
   update: updateCookie,
   remove: removeCookie
 };
+
