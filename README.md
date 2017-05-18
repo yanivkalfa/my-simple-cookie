@@ -40,8 +40,8 @@ Will delete the cookie "newCookie" <br>
 
 
 ##Options:
-expires : (Number) Number of second till cookie expires in seconds {default to : 30days - 60*60*24*30 }.<br>
+expires : (Number) Number of second till cookie expires in seconds {default to : closing browser}.<br>
 path : (String) Path of the cookie {default to : / }.<br>
- 
-
-
+domain : (String) domain of the cookie {default to : current domain }.<br>
+httponly : (Boolean) should we flag the cookie as httpOnly ? {default to : false }.<br>
+secure : (Boolean) should we flag the cookie as secured ? {default to : false }.<br>

@@ -2,11 +2,11 @@ var cookiesLimit, cookiesSize, defaults;
 cookiesLimit = 20;
 cookiesSize = 1024;
 defaults = {
-  expires :  60*60*24/* 30 days*/,
+  expires :  undefined,
   domain: undefined,
   httponly: undefined,
   secure:undefined,
-  path : '/'
+  path : undefined
 };
 
 function parseCookies(){
@@ -57,13 +57,12 @@ function buildCookie(content, expires, path, domain, httponly, secure) {
   return cookie.join('; ') + ';';
 }
 
-function getCookieExpires(opts){
-  var d, expires = defaults.expires;
-  d = new Date();
-  if (opts && typeof opts.expires === 'number' && opts.expires >= 0) {
-    expires = opts.expires;
-  }
+function checkExpires(expires) {
+  return typeof expires === 'number' && expires >= 0;
+}
 
+function getCookieExpires(expires){
+  var d = new Date();
   d.setTime(d.getTime()+(expires*1000));
   return d.toUTCString();
 }
@@ -78,8 +77,8 @@ function updateCookie(name, value, opts){
   if ( value.length >= cookiesSize ) console.warn('Value length is: ' + value.length + ' Certain browsers support up to: ' + cookiesSize);
 
   content = name + '=' + value;
-  expires = "expires=" + getCookieExpires(opts);
-  path = 'path=' + ( opts && opts.path || defaults.path );
+  expires = opts && typeof opts.expires !== 'undefined' && checkExpires(opts.expires) ? "expires=" + getCookieExpires(opts.expires) : defaults.expires;
+  path = opts && typeof opts.path !== 'undefined' ? 'path=' + opts.path : defaults.path;
   domain = opts && typeof opts.domain !== 'undefined' ? 'domain=' + opts.domain : defaults.domain;
   httponly = opts && typeof opts.httponly !== 'undefined' ? 'httponly=' + opts.httponly : defaults.httponly;
   secure = opts && typeof opts.secure !== 'undefined' ? 'secure=' + opts.secure  : defaults.secure;
@@ -100,4 +99,4 @@ module.exports = {
   set: updateCookie,
   update: updateCookie,
   remove: removeCookie
-}
+};
