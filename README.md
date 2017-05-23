@@ -36,7 +36,7 @@ cookies.remove(cookieName);
 ```javascript
 cookies.remove('newCookie' );
 ```
-Will delete the cookie "newCookie" <br>
+Will delete the cookie "newCookie". <br>
 
 
 ## Options:
