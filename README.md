@@ -1,7 +1,7 @@
 My Simple Cookie
 ================
 
-Simple cookie handling module<br>
+Simple cookie handling module.<br>
 
 ## Setting a cookie:
 cookies.set(cookieName, cookieValue[, opts]);
